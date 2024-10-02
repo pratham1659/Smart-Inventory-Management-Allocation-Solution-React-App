@@ -1,0 +1,49 @@
+/* Navbar Style CSS -------------------- */
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  background-color: white; /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: fixed; /* Navbar stays on top of the page */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Make sure the navbar stays on top of other content */
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-item {
+  margin-left: 20px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-weight: 900;
+}
+
+.navbar-link:hover {
+  color: #007bff; /* Change color on hover */
+}
