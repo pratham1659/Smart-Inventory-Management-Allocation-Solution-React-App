@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./demo.css";
-import stock from "../temp/stock.jpg";
+import "./style.css";
+import smart from "../temp/smart.png";
 
 const LoginShowcase = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,20 +12,24 @@ const LoginShowcase = () => {
           <h2>Sign in to your accounts</h2>
           <form>
             <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" placeholder="E-mail" />
+              <label htmlFor="name" className="text-align">
+                Name
+              </label>
+              <input type="email" id="name" placeholder="E-mail" />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="text-align">
+                Password
+              </label>
               <div className="password-input">
                 <input type={showPassword ? "text" : "password"} id="password" placeholder="Password" />
                 <button type="button" onClick={() => setShowPassword(!showPassword)} className="toggle-password">
-                  {showPassword ? "👁️" : "👁️‍🗨️"}
+                  {showPassword ? "Hide" : "Show"}
                 </button>
               </div>
             </div>
             <div className="forgot-password">
-              <a href="#">Forgot Password?</a>
+              <a href="/">Forgot Password?</a>
             </div>
             <button type="submit" className="sign-in-button">
               Sign in
@@ -59,14 +63,14 @@ const LoginShowcase = () => {
             <button className="sso-button">Login with SSO</button>
           </div>
           <div className="help-text">
-            Need any help? <a href="#">Contact now</a>
+            Need any help? <a href="/">Contact now</a>
           </div>
         </div>
       </div>
       <div className="showcase-section">
         <h1>Smart Inventory, Smarter Business</h1>
         <div className="desktop-image">
-          <img src={stock} alt="Desktop application interface" />
+          <img src={smart} alt="Desktop application interface" />
         </div>
         <h3>Efficient Inventory, Effortless Success</h3>
         <p>Revolutionize Your Inventory, Realize Your Potential</p>
