@@ -1,0 +1,13 @@
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #0066cc;
+}
