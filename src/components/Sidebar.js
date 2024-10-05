@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaTh, FaBars, FaUserAlt, FaRegChartBar, FaCommentAlt, FaShoppingBag, FaThList } from "react-icons/fa";
 import "./style/sidebar.css";
-import invlogo from "../images/strategy_3490910.png";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
@@ -44,7 +43,6 @@ const Sidebar = ({ children }) => {
       <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            {/* <img src={invlogo} alt="inv logo" className="user-avatar" /> */}
             Menu
           </h1>
           <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
