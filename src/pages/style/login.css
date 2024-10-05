@@ -1,8 +1,8 @@
 /* Login Page ----------------------------------------------------------------------------------- */
 .container {
-  margin-top: 30px;
+  /* margin-top: 20px; */
   display: flex;
-  min-height: 100vh;
+  min-height: 110vh;
   font-family: Arial, sans-serif;
 }
 .login-section,
@@ -24,7 +24,7 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .text-align {
@@ -150,17 +150,6 @@ input {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  .login-section,
-  .showcase-section {
-    padding: 1rem;
-  }
-}
-
-/* Desktop images ------------------------------ */
 .desktop-image {
   width: 50%; /* Adjust the width */
   height: auto; /* Maintain aspect ratio */
