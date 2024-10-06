@@ -1,16 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh", // Full viewport height
-        textAlign: "center",
-      }}>
-      <h1>This is About Page</h1>
+    <div>
+      <h2>This is About Page</h2>
+      <p>
+        <Link to="/" className="underline">
+          Go to Dashboard
+        </Link>
+      </p>
     </div>
   );
 };

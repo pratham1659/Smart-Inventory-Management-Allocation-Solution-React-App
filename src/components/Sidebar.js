@@ -1,66 +1,34 @@
-import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaRegChartBar, FaCommentAlt, FaShoppingBag, FaThList } from "react-icons/fa";
-import "./style/sidebar.css";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { MdDashboard } from "react-icons/md";
+import { DASHBOARD_SIDEBAR_LINKS } from "../utils/data";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 
-const Sidebar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-  const menuItem = [
-    {
-      path: "/",
-      name: "Dashboard",
-      icon: <FaTh />,
-    },
-    {
-      path: "/about",
-      name: "About",
-      icon: <FaUserAlt />,
-    },
-    {
-      path: "/analytics",
-      name: "Analytics",
-      icon: <FaRegChartBar />,
-    },
-    {
-      path: "/comment",
-      name: "Comment",
-      icon: <FaCommentAlt />,
-    },
-    {
-      path: "/product",
-      name: "Product",
-      icon: <FaShoppingBag />,
-    },
-    {
-      path: "/productList",
-      name: "Product List",
-      icon: <FaThList />,
-    },
-  ];
+const linkClass =
+  "flex items-center gap-2 font-light px-3 py-2 hover:bg-neutral-700 hover:no-underline active:bg-neutral-600 rounded-sm text-base";
+
+export default function Sidebar() {
   return (
-    <div className="sidebar-container">
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
-        <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            Menu
-          </h1>
-          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
-            <FaBars onClick={toggle} />
-          </div>
-        </div>
-        {menuItem.map((item, index) => (
-          <NavLink to={item.path} key={index} className="link" activeclassName="active">
-            <div className="icon">{item.icon}</div>
-            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
-              {item.name}
-            </div>
-          </NavLink>
+    <div className="bg-neutral-900 w-60 p-3 flex flex-col text-white">
+      <div className="flex items-center gap-2 px-3 py-3">
+        <MdDashboard fontSize={30} />
+        <span className="text-neutral-300 text-xl font-bold">Navigator</span>
+      </div>
+      <div className="flex-1">
+        {DASHBOARD_SIDEBAR_LINKS.map((item) => (
+          <SidebarLinks key={item.key} item={item} />
         ))}
       </div>
-      <main>{children}</main>
+      <div>bottom part</div>
     </div>
   );
-};
+}
 
-export default Sidebar;
+function SidebarLinks({ item }) {
+  return (
+    <Link to={item.path} className={classNames("text-white", linkClass)}>
+      <span className="text-xl">{item.icon}</span>
+      {item.label}
+    </Link>
+  );
+}

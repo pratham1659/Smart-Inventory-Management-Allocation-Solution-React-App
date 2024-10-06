@@ -24,7 +24,7 @@ const LoginPage = () => {
       <div className="container">
         <div className="login-section">
           <div className="login-card">
-            <h2>Sign in to your accounts</h2>
+            <h2 className="login-header">Sign in to your accounts</h2>
             <form>
               <div className="form-group">
                 <label htmlFor="name" className="text-align">
