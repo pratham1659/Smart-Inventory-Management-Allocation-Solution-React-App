@@ -8,12 +8,12 @@ const Navbar = ({ user, onLogin, onLogout }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="/" className="navbar-logo">
+        <a href="login" className="navbar-logo">
           Inventory Smart
         </a>
         <div className="navbar-menu">
           <li className="navbar-item">
-            <a href="/home" className="navbar-link">
+            <a href="/" className="navbar-link">
               Home
             </a>
           </li>

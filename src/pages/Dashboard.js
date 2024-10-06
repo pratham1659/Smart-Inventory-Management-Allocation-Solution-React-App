@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { FaFilter } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+import { BsSearch } from "react-icons/bs";
 
 const Dashboard = () => {
   return (
@@ -26,7 +26,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="absolute bottom-2 right-2 bg-blue-500 rounded-full p-2">
-                <IoSearch className="h-6 w-6 text-white" />
+                <BsSearch className="h-6 w-6 text-white" />
               </div>
             </div>
           </div>

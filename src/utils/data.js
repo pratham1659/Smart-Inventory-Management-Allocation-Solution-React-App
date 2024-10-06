@@ -47,7 +47,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "orderbatch",
-    label: "OrderBatching",
+    label: "Order Batching",
     path: "/order-batching",
     icon: <PiGraph />,
   },
@@ -78,4 +78,18 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
     path: "/support",
     icon: <HiOutlineQuestionMarkCircle />,
   },
+];
+
+export const breadcrumbData = [
+  { label: "Dashboard", path: "/" },
+  { label: "Product Profile", path: "/product-profile" },
+  { label: "Create Allocation", path: "/create-allocation" },
+  { label: "Grouping", path: "/grouping" },
+  { label: "Configuration", path: "/configuration" },
+  { label: "Constraints", path: "/constraints" },
+  { label: "Order Batching", path: "/order-batching" },
+  { label: "View Past Allocation", path: "/view-past-allocation" },
+  { label: "Reports", path: "/report" },
+  { label: "Settings", path: "/settings" },
+  { label: "Help & Support", path: "/support" },
 ];
