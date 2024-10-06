@@ -1,13 +1,12 @@
-import {
-  HiOutlineViewGrid,
-  HiOutlineShoppingCart,
-  HiOutlineUsers,
-  HiOutlineDocumentText,
-  HiOutlineAnnotation,
-  HiOutlineQuestionMarkCircle,
-  HiOutlineCog,
-} from "react-icons/hi";
+import { HiOutlineViewGrid, HiOutlineQuestionMarkCircle, HiOutlineCog } from "react-icons/hi";
+import { FaUserGear } from "react-icons/fa6";
+import { IoConstruct } from "react-icons/io5";
 import { AiOutlineProfile } from "react-icons/ai";
+import { IoIosCreate } from "react-icons/io";
+import { GrGroup } from "react-icons/gr";
+import { PiGraph } from "react-icons/pi";
+import { PiTreeView } from "react-icons/pi";
+import { TbReportAnalytics } from "react-icons/tb";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -19,32 +18,50 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "products",
     label: "Product Profile",
-    path: "/products",
+    path: "/product-profile",
     icon: <AiOutlineProfile />,
   },
   {
-    key: "orders",
-    label: "Orders",
-    path: "/orders",
-    icon: <HiOutlineShoppingCart />,
+    key: "create",
+    label: "Create Allocation",
+    path: "/create-allocation",
+    icon: <IoIosCreate />,
   },
   {
-    key: "customers",
-    label: "Customers",
-    path: "/customers",
-    icon: <HiOutlineUsers />,
+    key: "grouping",
+    label: "Grouping",
+    path: "/grouping",
+    icon: <GrGroup />,
   },
   {
-    key: "transactions",
-    label: "Transactions",
-    path: "/transactions",
-    icon: <HiOutlineDocumentText />,
+    key: "configuration",
+    label: "Configuration",
+    path: "/configuration",
+    icon: <FaUserGear />,
   },
   {
-    key: "messages",
-    label: "Messages",
-    path: "/messages",
-    icon: <HiOutlineAnnotation />,
+    key: "constraints",
+    label: "Constraints",
+    path: "/constraints",
+    icon: <IoConstruct />,
+  },
+  {
+    key: "orderbatch",
+    label: "OrderBatching",
+    path: "/order-batching",
+    icon: <PiGraph />,
+  },
+  {
+    key: "viewpast",
+    label: "View Past Allocation",
+    path: "/view-past-allocation",
+    icon: <PiTreeView />,
+  },
+  {
+    key: "report",
+    label: "Reports",
+    path: "/report",
+    icon: <TbReportAnalytics />,
   },
 ];
 

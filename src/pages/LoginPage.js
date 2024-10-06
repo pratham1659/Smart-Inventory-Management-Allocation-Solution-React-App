@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style/login.css";
+import "./style.css";
 import Navbar from "../components/Navbar";
 import smart from "../images/smart.png";
 
