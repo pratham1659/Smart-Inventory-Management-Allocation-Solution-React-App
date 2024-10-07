@@ -1,9 +1,11 @@
 import React from "react";
+import SelectFilter from "../components/SelectFilter";
 
 const Constraints = () => {
   return (
-    <div>
-      <h2 className="text-center">Constraints</h2>
+    <div className="min-h-screen bg-gray-100">
+      <span className="text-center">Constraints</span>
+      <SelectFilter />
     </div>
   );
 };

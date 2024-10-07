@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Header from "./Header";
 import Breadcrumbs from "./Breadcrumb";
 
