@@ -1,5 +1,5 @@
 import React from "react";
-import SelectFilter from "../components/SelectFilter";
+import SelectFilter from "../temp/SelectFilter";
 
 const Dashboard = () => {
   return (
