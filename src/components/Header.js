@@ -12,10 +12,10 @@ const Header = () => {
         <h1 className="text-2xl font-bold text-gray-900">Inventory Insight</h1>
         <div className="flex items-center space-x-1">
           <Button variant="ghost" size="icon">
-            <BsBell className="h-5 w-5 text-gray-500" />
+            <BsBell className="h-6 w-6 text-gray-500" />
           </Button>
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">{firstLetter}</div>
+            <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold">{firstLetter}</div>
             <span className="text-sm font-medium text-gray-700">Hi, {username}</span>
           </div>
         </div>

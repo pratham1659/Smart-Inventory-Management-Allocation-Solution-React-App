@@ -1,16 +1,25 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FaFilter } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: "Poppins, Arial, sans-serif", // Replace with your desired font
+  },
+});
 
 const SelectFilter = () => {
   return (
     <main className="max-w-7xl mx-auto px-4 py-2">
       <div className="flex justify-end mb-4">
-        <Button variant="contained" size="small" className="bg-blue-600 hover:bg-blue-700 text-white">
-          <FaFilter className="h-4 w-4 mr-2" />
-          Select Filters
-        </Button>
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" size="small" className="bg-blue-600 hover:bg-blue-00 text-white " disableElevation>
+            <FaFilter className="h-3 w-3 mr-2" />
+            Select Filters
+          </Button>
+        </ThemeProvider>
       </div>
 
       <div className="bg-white shadow rounded-lg p-8 flex flex-col items-center justify-center" style={{ height: "60vh" }}>
