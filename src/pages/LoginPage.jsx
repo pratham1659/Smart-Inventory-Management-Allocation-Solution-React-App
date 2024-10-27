@@ -2,7 +2,6 @@ import smart from "../images/smart.png";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Navbar from "../components/Navbar";
-import "./style.css";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);

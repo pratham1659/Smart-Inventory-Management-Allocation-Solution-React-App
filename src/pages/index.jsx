@@ -5,7 +5,7 @@ export { default as CreateAllocation } from "./CreateAllocation";
 export { default as Dashboard } from "./Dashboard";
 export { default as Grouping } from "./Grouping";
 export { default as HelpSupport } from "./HelpSupport";
-export { default as login } from "./login";
+export { default as LoginPage } from "./LoginPage";
 export { default as OrderBatching } from "./OrderBatching";
 export { default as ProductProfile } from "./ProductProfile";
 export { default as Report } from "./Report";
