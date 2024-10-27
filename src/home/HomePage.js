@@ -12,7 +12,9 @@ import ProductProfile from "../pages/ProductProfile";
 import Report from "../pages/Report";
 import ViewPastAllocation from "../pages/ViewPastAllocation";
 import Settings from "../pages/Settings";
-import HelpSupport from "../pages/HelpSupport";
+import { HelpSupport } from "../pages";
+
+// import { Button, Header, Navbar, Notification, Sidebar, ThemeSettings, UserProfile } from "../components";
 
 const HomePage = () => {
   const activeMenu = true;
