@@ -8,7 +8,7 @@ import { PiGraph } from "react-icons/pi";
 import { PiTreeView } from "react-icons/pi";
 import { TbReportAnalytics } from "react-icons/tb";
 
-export const DASHBOARD_SIDEBAR_LINKS = [
+export const SIDEBAR_LINKS = [
   {
     key: "dashboard",
     label: "Dashboard",
@@ -65,7 +65,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
 ];
 
-export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
+export const SIDEBAR_BOTTOM_LINKS = [
   {
     key: "settings",
     label: "Settings",
