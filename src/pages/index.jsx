@@ -11,8 +11,3 @@ export { default as ProductProfile } from "./ProductProfile";
 export { default as Report } from "./Report";
 export { default as Settings } from "./Settings";
 export { default as ViewPastAllocation } from "./ViewPastAllocation";
-
-//charts pages export
-export { default as Area } from "./charts/Area";
-export { default as Bar } from "./charts/Bar";
-export { default as Line } from "./charts/Line";

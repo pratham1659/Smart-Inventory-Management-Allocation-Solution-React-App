@@ -20,7 +20,7 @@ import { Navbar, Sidebar } from "../components";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const HomePage = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
@@ -28,6 +28,7 @@ const HomePage = () => {
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <Tooltip title="Settings" placement="top">
             <button
+              type="button"
               style={{ background: "blue", borderRadius: "50%" }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
               <FiSettings />
@@ -47,32 +48,31 @@ const HomePage = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar />
           </div>
+          <div className="">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              {/* Dashboard */}
+              {/* <Route index element={<Dashboard />} /> */}
+
+              {/* Pages */}
+              <Route path="/configuration" element={<Configuration />} />
+              <Route path="/constraints" element={<Constraints />} />
+              <Route path="/create-allocation" element={<CreateAllocation />} />
+              <Route path="/grouping" element={<Grouping />} />
+              <Route path="/order-batching" element={<OrderBatching />} />
+              <Route path="/product-profile" element={<ProductProfile />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/view-past-allocation" element={<ViewPastAllocation />} />
+
+              {/* Settings and Support */}
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/support" element={<HelpSupport />} />
+
+              {/* Login Logout */}
+              <Route path="/login" element="Login and Logout" />
+            </Routes>
+          </div>
         </div>
-      </div>
-      <div className="">
-        <Routes>
-          <Route path="/" element={<Dashboard />}>
-            {/* Dashboard */}
-            {/* <Route index element={<Dashboard />} /> */}
-
-            {/* Pages */}
-            <Route path="/configuration" element={<Configuration />} />
-            <Route path="/constraints" element={<Constraints />} />
-            <Route path="/create-allocation" element={<CreateAllocation />} />
-            <Route path="/grouping" element={<Grouping />} />
-            <Route path="/order-batching" element={<OrderBatching />} />
-            <Route path="/product-profile" element={<ProductProfile />} />
-            <Route path="/report" element={<Report />} />
-            <Route path="/view-past-allocation" element={<ViewPastAllocation />} />
-
-            {/* Settings and Support */}
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/support" element={<HelpSupport />} />
-          </Route>
-
-          {/* Login Logout */}
-          <Route path="/login" element="Login and Logout" />
-        </Routes>
       </div>
     </div>
   );

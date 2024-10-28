@@ -8,7 +8,13 @@ import { SIDEBAR_LINKS } from "../utils/data";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+
+  const handleCloseSidebar = () => {
+    if (activeMenu && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
 
   const activeLink = "flex items-center gap-5 pl-4 pt-3 pb-2 text-white text-md";
   const normalLink =
@@ -21,7 +27,7 @@ const Sidebar = () => {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              onClick={() => setActiveMenu(false)}
+              onClick={handleCloseSidebar}
               className="items-center gap-3 pl-0 ml-3 mt-4 flex text-2xl font-extrabold tracking-tight dark:text-white text-slate-900">
               <MdDashboard fontSize={30} />
               <span>Navigation</span>
@@ -37,12 +43,8 @@ const Sidebar = () => {
           </div>
           <div className="mt-2">
             {SIDEBAR_LINKS.map((item) => (
-              <div>
-                <NavLink
-                  to={item.path}
-                  key={item.key}
-                  onClick={() => {}}
-                  className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+              <div key={item.key}>
+                <NavLink to={item.path} onClick={handleCloseSidebar} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
                   <span className="lg:text-2xl md:text-xl"> {item.icon}</span>
                   <span className="">{item.label}</span>
                 </NavLink>
