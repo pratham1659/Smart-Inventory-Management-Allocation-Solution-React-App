@@ -16,20 +16,23 @@ import {
   HelpSupport,
 } from "../pages";
 
-import { Navbar, Sidebar } from "../components";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
+import ThemeSettings from "../components/ThemeSettings";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const HomePage = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
 
   return (
-    <div>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <Tooltip title="Settings" placement="top">
             <button
               type="button"
-              style={{ background: "blue", borderRadius: "50%" }}
+              onClick={() => setThemeSettings(true)}
+              style={{ background: currentColor, borderRadius: "50%" }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
               <FiSettings />
             </button>
@@ -44,11 +47,12 @@ const HomePage = () => {
             <Sidebar />
           </div>
         )}
-        <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? " md:ml-72" : " flex-2"}`}>
+        <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? " md:ml-72" : " flex-2"}`}>
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar />
           </div>
           <div>
+            {themeSettings && <ThemeSettings />}
             <Routes>
               <Route path="/" element={<Dashboard />} />
               {/* Dashboard */}

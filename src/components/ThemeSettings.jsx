@@ -1,6 +1,6 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { BsCheck } from "react-icons/bs";
+import { BsCheckLg } from "react-icons/bs";
 import Tooltip from "@mui/material/Tooltip";
 
 import { themeColors } from "../utils/data";
@@ -11,9 +11,9 @@ const ThemeSettings = () => {
 
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200  bg-white dark:bg-[#484B52] w-400">
+      <div className="float-right h-screen dark:text-gray-200  bg-white dark:bg-[#484B52] w-90">
         <div className="flex justify-between items-center p-4 ml-4">
-          <p className="font-semibold text-lg">Settings</p>
+          <p className="font-semibold text-2xl">Settings</p>
           <button
             type="button"
             onClick={() => setThemeSettings(false)}
@@ -31,11 +31,10 @@ const ThemeSettings = () => {
               id="light"
               name="theme"
               value="Light"
-              className="cursor-pointer"
+              className="appearance-none w-[18px] h-[18px] border-2 border-gray-300 rounded-full checked:border-[#3b82f6] checked:border-[5px] transition-all duration-200 cursor-pointer"
               onChange={setMode}
               checked={currentMode === "Light"}
             />
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="light" className="ml-2 text-md cursor-pointer">
               Light
             </label>
@@ -47,7 +46,7 @@ const ThemeSettings = () => {
               name="theme"
               value="Dark"
               onChange={setMode}
-              className="cursor-pointer"
+              className="appearance-none w-[18px] h-[18px] border-2 border-gray-300 rounded-full checked:border-[#3b82f6] checked:border-[5px] transition-all duration-200 cursor-pointer"
               checked={currentMode === "Dark"}
             />
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -58,7 +57,7 @@ const ThemeSettings = () => {
         </div>
         <div className="p-4 border-t-1 border-color ml-4">
           <p className="font-semibold text-xl ">Theme Colors</p>
-          <div className="flex gap-3">
+          <div className="flex gap-1">
             {themeColors.map((item, index) => (
               <Tooltip key={index} title={item.name} placement="top">
                 <div className="relative mt-2 cursor-pointer flex gap-5 items-center" key={item.name}>
@@ -67,7 +66,7 @@ const ThemeSettings = () => {
                     className="h-10 w-10 rounded-full cursor-pointer"
                     style={{ backgroundColor: item.color }}
                     onClick={() => setColor(item.color)}>
-                    <BsCheck className={`ml-2 text-2xl text-white ${item.color === currentColor ? "block" : "hidden"}`} />
+                    <BsCheckLg className={`ml-2 text-2xl text-white ${item.color === currentColor ? "block" : "hidden"}`} />
                   </button>
                 </div>
               </Tooltip>
