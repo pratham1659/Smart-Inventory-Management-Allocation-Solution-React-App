@@ -48,7 +48,7 @@ const HomePage = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar />
           </div>
-          <div className="">
+          <div>
             <Routes>
               <Route path="/" element={<Dashboard />} />
               {/* Dashboard */}

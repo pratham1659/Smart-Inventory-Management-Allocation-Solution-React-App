@@ -4,8 +4,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Tooltip } from "@mui/material";
-import Notification from "./Notification";
 import UserProfile from "./UserProfile";
+import Notification from "./Notification";
 
 import { useStateContext } from "../contexts/ContextProvider";
 
