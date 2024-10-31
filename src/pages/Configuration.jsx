@@ -1,11 +1,10 @@
 import React from "react";
-import SelectFilter from "../temp/SelectFilter";
+import Config from "../pages/Configuration/Config";
 
 const Configuration = () => {
   return (
     <div className="min-h-screen bg-gray-100">
-      <span className="text-center">Configuration</span>
-      <SelectFilter />
+      <Config />
     </div>
   );
 };
