@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-
-import { AiOutlineMenu } from "react-icons/ai";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Tooltip } from "@mui/material";
@@ -8,6 +6,7 @@ import UserProfile from "./UserProfile";
 import Notification from "./Notification";
 
 import { useStateContext } from "../contexts/ContextProvider";
+import { Link } from "react-router-dom";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) => (
   <Tooltip title={title} placement="bottom">
@@ -42,11 +41,13 @@ const Navbar = () => {
     // eslint-disable-next-line
   }, [screenSize]);
 
-  const handleActiveMenu = () => setActiveMenu(!activeMenu);
-
   return (
     <div className="flex justify-between p-2 relative" style={{ boxShadow: "0 2px 2px -2px rgba(0, 0, 0, 0.2)" }}>
-      <NavButton title="Menu" customFunc={handleActiveMenu} color={currentColor} icon={<AiOutlineMenu />} />
+      <Link
+        to="/"
+        className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex text-2xl font-extrabold tracking-tight dark:text-white text-slate-900">
+        <span>Inventory Insight</span>
+      </Link>
 
       <div className="flex">
         <NavButton

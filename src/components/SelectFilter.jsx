@@ -9,7 +9,8 @@ const SelectFilter = () => {
     <main className="max-w-7xl mx-auto px-4 py-2">
       <div className="flex justify-end mb-4">
         <button
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-white hover:bg-blue-800 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-white hover:bg-gray-400
+          dark:hover:bg-gray-400  rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           style={{ backgroundColor: currentColor }}>
           <FaFilter className="h-3 w-3 mr-2" />
           Select Filters

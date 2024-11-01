@@ -2,8 +2,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronRight } from "react-icons/fa";
 import { breadcrumbData } from "../utils/data";
 
 export default function Breadcrumbs() {
@@ -30,8 +29,8 @@ export default function Breadcrumbs() {
           </Link>
           {breadcrumbs.map((item, index) => (
             <React.Fragment key={item.path}>
-              {index > 0 && <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />}
-              <FontAwesomeIcon icon={faChevronRight} className="text-gray-600 h-3 w-3" />
+              {index > 0 && <FaChevronRight className="text-gray-600" />}
+              <FaChevronRight className="text-gray-600 h-3 w-3" />
               <Link
                 to={item.path}
                 className={`text-gray-600 hover:text-gray-800 no-underline ${currentPath === item.path ? "font-bold no-underline" : ""}`}>

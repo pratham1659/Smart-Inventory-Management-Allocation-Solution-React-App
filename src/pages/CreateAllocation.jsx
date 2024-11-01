@@ -1,5 +1,5 @@
 import React from "react";
-import SelectFilter from "../temp/SelectFilter";
+import SelectFilter from "../components/SelectFilter";
 
 const CreateAllocation = () => {
   return (
