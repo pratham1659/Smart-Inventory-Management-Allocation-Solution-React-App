@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { earningData, recentTransactions, dropdownData } from "../utils/data";
-
+import SelectFilter from "../components/SelectFilter";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Report = () => {
@@ -19,7 +19,11 @@ const Report = () => {
   };
 
   return (
-    <div className="mt-24 md:mt-12">
+    <div>
+      <div className="min-h-screen">
+        <span className="text-2xl mx-4 ml-3 font-semibold">Order Batching</span>
+        <SelectFilter />
+      </div>
       {/* KPI Tiles CARD */}
       <div className="flex m-3 flex-wrap justify-center gap-5 items-center">
         {earningData.map((item) => (

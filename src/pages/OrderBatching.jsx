@@ -1,9 +1,13 @@
 import React from "react";
+import SelectFilter from "../components/SelectFilter";
 
 const OrderBatching = () => {
   return (
     <div>
-      <h2 className="text-center">OrderBatching</h2>
+      <div className="min-h-screen">
+        <span className="text-2xl mx-4 ml-3 font-semibold">Order Batching</span>
+        <SelectFilter />
+      </div>
     </div>
   );
 };

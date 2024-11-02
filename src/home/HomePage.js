@@ -29,14 +29,14 @@ const HomePage = () => {
   return (
     <div className={`bg-gray-100 ${currentMode === "Dark" ? "dark" : ""}`}>
       <div className="flex relative dark:bg-main-dark-bg">
-        <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
+        <div className="fixed right-2 bottom-3" style={{ zIndex: "1000" }}>
           <Tooltip title="Settings" placement="top">
             <button
               type="button"
               onClick={() => setThemeSettings(true)}
               style={{ background: currentColor, borderRadius: "50%" }}
-              className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
-              <FiSettings />
+              className="text-xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
+              <FiSettings className="text-xl" />
             </button>
           </Tooltip>
         </div>

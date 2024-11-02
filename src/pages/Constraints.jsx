@@ -3,8 +3,8 @@ import SelectFilter from "../components/SelectFilter";
 
 const Constraints = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <span className="text-center">Constraints</span>
+    <div className="min-h-screen">
+      <span className="text-2xl mx-4 ml-3 font-semibold">Constraints</span>
       <SelectFilter />
     </div>
   );

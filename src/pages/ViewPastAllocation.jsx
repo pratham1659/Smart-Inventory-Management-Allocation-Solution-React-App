@@ -1,9 +1,11 @@
 import React from "react";
+import SelectFilter from "../components/SelectFilter";
 
 const ViewPastAllocation = () => {
   return (
-    <div>
-      <h2 className="text-center">ViewPastAllocation</h2>
+    <div className="min-h-screen">
+      <span className="text-2xl mx-4 ml-3 font-semibold">View Past Allocation</span>
+      <SelectFilter />
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { RiNotification3Line } from "react-icons/ri";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Badge from "@mui/material/Badge";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
-import { Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import UserProfile from "./UserProfile";
 import Notification from "./Notification";
 
@@ -49,8 +50,9 @@ const Navbar = () => {
     <div className="flex items-center justify-between p-2 relative" style={{ boxShadow: "0 2px 2px -2px rgba(0, 0, 0, 0.2)" }}>
       <div className="flex items-center gap-3">
         <NavButton
-          title="Menu"
+          title={activeMenu ? "Collapse Menu" : "Expand Menu"}
           customFunc={handleActiveMenu}
+          placement="bottom"
           color={currentColor}
           icon={
             activeMenu ? (
@@ -68,19 +70,19 @@ const Navbar = () => {
         />
         <Link
           to="/"
-          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex text-2xl xs:text-base xs:pl-0 font-extrabold tracking-tight dark:text-white text-gray-800">
+          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex  lg:text-2xl xs:text-base xs:pl-0 font-extrabold tracking-tight dark:text-white text-gray-800">
           <span>Inventory Insight</span>
         </Link>
       </div>
 
       <div className="flex">
-        <NavButton
-          title="Notification"
-          dotColor="rgb(254, 201, 15)"
-          customFunc={() => handleClick("notification")}
-          color={currentColor}
-          icon={<RiNotification3Line className="text-2xl p-0" />}
-        />
+        <div>
+          <IconButton size="large" aria-label="show 2 new notifications" color={currentColor} onClick={() => handleClick("notification")}>
+            <Badge badgeContent={2} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+        </div>
         <Tooltip content="Profile" placement="bottom">
           <div
             className="flex items-center gap-3 pl-2 cursor-pointer p-1 hover:bg-light-gray 
@@ -88,7 +90,7 @@ const Navbar = () => {
             onClick={() => handleClick("userProfile")}>
             <p>
               <span className="text-gray-500 text-20 dark:text-white"> Hi, </span>
-              <span className="text-gray-500 font-bold ml-1 text-20 dark:text-white">Michael</span>
+              <span className="text-gray-500 font-bold ml-1 text-20 dark:text-white">Pratham</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-20 dark:text-white" />
           </div>
