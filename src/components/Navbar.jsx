@@ -68,7 +68,7 @@ const Navbar = () => {
         />
         <Link
           to="/"
-          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex text-2xl font-extrabold tracking-tight dark:text-white text-gray-800">
+          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex text-2xl xs:text-base xs:pl-0 font-extrabold tracking-tight dark:text-white text-gray-800">
           <span>Inventory Insight</span>
         </Link>
       </div>

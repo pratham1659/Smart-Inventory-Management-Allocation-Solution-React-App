@@ -100,7 +100,7 @@ const Sidebar = () => {
                     ],
                   },
                 }}>
-                <span className="lg:text-2xl md:text-xl ml-3"> {item.icon}</span>
+                <span className="lg:text-2xl md:text-xl xs:text-xl ml-3"> {item.icon}</span>
               </Tooltip>
               {activeMenu && <span style={{ whiteSpace: "noWrap" }}>{item.label}</span>}
             </NavLink>
