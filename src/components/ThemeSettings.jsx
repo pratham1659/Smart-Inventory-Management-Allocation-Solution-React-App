@@ -18,7 +18,7 @@ const ThemeSettings = () => {
             type="button"
             onClick={() => setThemeSettings(false)}
             style={{ color: "rgb(153, 171, 180)", borderRadius: "50%" }}
-            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray">
+            className="text-3xl hover:bg-light-gray">
             <MdOutlineCancel />
           </button>
         </div>
@@ -45,6 +45,7 @@ const ThemeSettings = () => {
               id="dark"
               name="theme"
               value="Dark"
+              disabled
               onChange={setMode}
               className="appearance-none w-[18px] h-[18px] border-2 border-gray-300 rounded-full checked:border-[#3b82f6] checked:border-[5px] transition-all duration-200 cursor-pointer"
               checked={currentMode === "Dark"}
@@ -52,6 +53,7 @@ const ThemeSettings = () => {
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               Dark
+              <span className="text-red-600 text-sm font-bold"> * disabled</span>
             </label>
           </div>
         </div>

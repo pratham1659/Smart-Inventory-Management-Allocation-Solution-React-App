@@ -18,6 +18,7 @@ import {
 } from "../pages";
 
 import Navbar from "../components/Navbar";
+import Breadcrumbs from "../components/Breadcrumb";
 import Sidebar from "../components/Sidebar";
 import ThemeSettings from "../components/ThemeSettings";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -26,7 +27,7 @@ const HomePage = () => {
   const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
 
   return (
-    <div className={currentMode === "Dark" ? "dark" : ""}>
+    <div className={`bg-gray-100 ${currentMode === "Dark" ? "dark" : ""}`}>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <Tooltip title="Settings" placement="top">
@@ -39,20 +40,25 @@ const HomePage = () => {
             </button>
           </Tooltip>
         </div>
-        {activeMenu ? (
-          <motion.div animate={{ width: "18rem" }} className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-            <Sidebar />
-          </motion.div>
-        ) : (
-          <motion.div animate={{ width: "5rem" }} className="w-20 dark:bg-secondary-dark-bg bg-white">
-            <Sidebar />
-          </motion.div>
-        )}
-        <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? " md:ml-72" : " flex-2"}`}>
-          <div className="fixed top-0 md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+
+        {/* Sidebar */}
+        <motion.div
+          animate={{ width: activeMenu ? "18rem" : "5rem" }}
+          className={`fixed sidebar bg-main-dark-bg ${activeMenu ? "w-72 " : "w-20"} dark:bg-secondary-dark-bg`}>
+          <Sidebar />
+        </motion.div>
+
+        {/* Main Content Wrapper */}
+        <div className={`flex-1 min-h-screen transition-all duration-300 ease-in-out`}>
+          {/* Navbar */}
+          <div className="fixed top-0 left-0 right-0 z-50 bg-main-bg navbar dark:bg-main-dark-bg shadow-md">
             <Navbar />
           </div>
-          <div>
+
+          {/* Main Scrollable Content */}
+
+          <div className="mt-20 ml-20 px-4 pb-4 overflow-y-auto bg-gray-100 ">
+            <Breadcrumbs />
             {themeSettings && <ThemeSettings />}
             <Routes>
               <Route path="/" element={<Dashboard />} />
