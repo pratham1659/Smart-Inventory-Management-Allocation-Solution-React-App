@@ -1,4 +1,4 @@
-import { HiOutlineViewGrid, HiOutlineQuestionMarkCircle, HiOutlineCog } from "react-icons/hi";
+import { HiOutlineViewGrid, HiOutlineQuestionMarkCircle, HiOutlineCog, HiOutlineLogout } from "react-icons/hi";
 import { FaUserGear } from "react-icons/fa6";
 import { IoConstruct } from "react-icons/io5";
 import { AiOutlineProfile } from "react-icons/ai";
@@ -79,10 +79,11 @@ export const SIDEBAR_BOTTOM_LINKS = [
     icon: <HiOutlineCog />,
   },
   {
-    key: "support",
-    label: "Help & Support",
-    path: "/support",
-    icon: <HiOutlineQuestionMarkCircle />,
+    key: "logout",
+    label: "Logout",
+    path: "/login",
+    icon: <HiOutlineLogout className="text-red-600" />,
+    labelStyle: "font-bold text-red-600",
   },
 ];
 

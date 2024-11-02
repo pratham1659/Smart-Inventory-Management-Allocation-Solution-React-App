@@ -21,7 +21,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar user={user} onLogin={handleLogin} onLogout={handleLogout} />
       <main className="flex-grow flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 p-8 flex items-center justify-center bg-gray-100">
           <div className="w-full max-w-xs space-y-4 bg-white p-4 rounded-md shadow-md">

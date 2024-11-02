@@ -4,7 +4,7 @@ import { MdDashboard } from "react-icons/md";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import { Tooltip } from "@mui/material";
 
-import { SIDEBAR_LINKS } from "../utils/data";
+import { SIDEBAR_LINKS, SIDEBAR_BOTTOM_LINKS } from "../utils/data";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
@@ -33,9 +33,6 @@ const Sidebar = () => {
   }, [setActiveMenu]);
 
   const activeLink = `flex items-center gap-6 pl-4 pt-3 pb-3 text-white text-md ${activeMenu ? "rounded-l-lg rounded-r-lg" : ""}`;
-  // const normalLink = `flex items-center gap-6 pl-4 pt-3 pb-3 text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray ${
-  //   activeMenu ? "rounded-l-lg rounded-r-lg" : ""
-  // }`;
 
   const normalLink = `flex items-center gap-6 pl-4 pt-3 pb-3 text-md text-gray-200 hover:text-black hover:bg-light-gray ${
     activeMenu ? "rounded-l-lg rounded-r-lg" : ""
@@ -45,16 +42,13 @@ const Sidebar = () => {
     <div
       ref={sidebarRef}
       className={`${
-        activeMenu
-          ? "ml-3 mr-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10"
-          : "ml-0 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10"
-      }`}>
+        activeMenu ? "ml-3 mr-3 h-screen md:overflow-hidden pb-10" : "ml-0 h-screen md:overflow-hidden pb-10"
+      } flex flex-col justify-between`}>
       <div className="flex justify-between items-center">
         {activeMenu && (
           <Link
             to="/"
             onClick={handleCloseSidebar}
-            // className="items-center gap-3 pl-0 ml-1 mt-4 flex text-2xl font-extrabold tracking-tight dark:text-white text-slate-900">
             className="items-center gap-3 pl-0 ml-1 mt-4 flex text-2xl font-extrabold tracking-tight dark:text-white text-white">
             <MdDashboard fontSize={30} />
             <span>Navigation</span>
@@ -74,7 +68,7 @@ const Sidebar = () => {
           </button>
         </Tooltip>
       </div>
-      <div className="mt-8">
+      <div className="mt-8 flex-grow">
         {SIDEBAR_LINKS.map((item) => (
           <div key={item.key} className="relative group">
             <NavLink
@@ -103,6 +97,41 @@ const Sidebar = () => {
                 <span className="lg:text-2xl md:text-xl xs:text-xl ml-3"> {item.icon}</span>
               </Tooltip>
               {activeMenu && <span style={{ whiteSpace: "noWrap" }}>{item.label}</span>}
+            </NavLink>
+          </div>
+        ))}
+        {SIDEBAR_BOTTOM_LINKS.map((item) => (
+          <div key={item.key} className="relative group">
+            <NavLink
+              to={item.path}
+              onClick={handleCloseSidebar}
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+              <Tooltip
+                title={item.label}
+                placement="right"
+                arrow
+                slotProps={{
+                  popper: {
+                    modifiers: [
+                      {
+                        name: "offset",
+                        options: {
+                          offset: [0, 20],
+                        },
+                      },
+                    ],
+                  },
+                }}>
+                <span className="lg:text-2xl md:text-xl xs:text-xl ml-3"> {item.icon}</span>
+              </Tooltip>
+              {activeMenu && (
+                <span className={item.labelStyle} style={{ whiteSpace: "noWrap" }}>
+                  {item.label}
+                </span>
+              )}
             </NavLink>
           </div>
         ))}
