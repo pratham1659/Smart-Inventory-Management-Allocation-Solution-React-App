@@ -3,7 +3,7 @@ import Config from "../pages/Configuration/Config";
 
 const Configuration = () => {
   return (
-    <div className="min-h-screen">
+    <div>
       <Config />
     </div>
   );

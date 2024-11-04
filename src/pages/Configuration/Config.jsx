@@ -8,8 +8,8 @@ function Config() {
   const [activeTab, setActiveTab] = useState("Product Configuration");
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto p-6">
-      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Configuration</h1>
+    <div className="w-full max-w-[1200px] mx-auto p-1">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-2">Configuration</h1>
 
       {/* Tabs */}
       <div className="border-b mb-6">
