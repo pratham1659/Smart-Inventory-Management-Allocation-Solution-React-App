@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-// eslint-disable-next-line no-undef
-module.exports = {
+import tailwindcssAnimate from "tailwindcss-animate";
+
+export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: ["class", "class"],
   theme: {
@@ -19,6 +20,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "300px",
+        "2xl": "1536px",
       },
       fontSize: {
         14: "14px",
@@ -100,5 +102,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    tailwindcssAnimate,
+    // ...
+  ],
 };

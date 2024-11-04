@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
-import Button from "@mui/material/Button";
 import { useStateContext } from "../contexts/ContextProvider";
 import FilterDialog from "./FilterDialog";
+import { Button } from "@/components/ui/button";
 
 const SelectFilter = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -15,12 +15,7 @@ const SelectFilter = () => {
   return (
     <main className="max-w-7xl mx-auto px-4 py-2">
       <div className="flex justify-end mb-4">
-        <Button
-          variant="contained"
-          onClick={handleDialogOpen}
-          sx={{
-            backgroundColor: currentColor,
-          }}>
+        <Button outline="contained" onClick={handleDialogOpen} style={{ backgroundColor: currentColor }} className="text-md">
           <FaFilter className="h-3 w-3 mr-2" />
           Select Filters
         </Button>

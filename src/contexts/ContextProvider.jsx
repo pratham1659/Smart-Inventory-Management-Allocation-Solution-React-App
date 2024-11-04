@@ -6,7 +6,7 @@ const initialState = {
   userProfile: false,
   notification: false,
 };
-
+//eslint-disable-next-line
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
