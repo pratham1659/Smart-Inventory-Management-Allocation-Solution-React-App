@@ -3,6 +3,7 @@ import { Tooltip } from "@mui/material";
 import { motion } from "framer-motion";
 import { FiSettings } from "react-icons/fi";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import {
   Dashboard,
   Configuration,
@@ -31,6 +32,9 @@ const HomePage = () => {
   // Check if the current path is "/login"
   const isLoginPage = location.pathname === "/login";
 
+  // Check if the screen width is 300px or lower
+  const isSmallScreen = useMediaQuery({ maxWidth: 1024 });
+
   return (
     <div className={`bg-gray-100 ${currentMode === "Dark" ? "dark" : ""}`}>
       <div className="flex relative dark:bg-main-dark-bg">
@@ -52,8 +56,8 @@ const HomePage = () => {
         {/* Sidebar */}
         {!isLoginPage && (
           <motion.div
-            animate={{ width: activeMenu ? "18rem" : "5rem" }}
-            className={`fixed sidebar bg-main-dark-bg ${activeMenu ? "w-72 " : "w-20"} dark:bg-secondary-dark-bg`}>
+            animate={{ width: activeMenu ? "18rem" : isSmallScreen ? "4rem" : "5rem" }}
+            className={`fixed sidebar bg-main-dark-bg ${activeMenu ? "w-72 " : "w-20 xs:w-18"} dark:bg-secondary-dark-bg`}>
             <Sidebar />
           </motion.div>
         )}

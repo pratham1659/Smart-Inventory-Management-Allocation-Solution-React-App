@@ -1,4 +1,4 @@
-import { HiOutlineViewGrid, HiOutlineQuestionMarkCircle, HiOutlineCog, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineViewGrid, HiOutlineCog, HiOutlineLogout } from "react-icons/hi";
 import { FaUserGear } from "react-icons/fa6";
 import { IoConstruct } from "react-icons/io5";
 import { AiOutlineProfile } from "react-icons/ai";
@@ -69,9 +69,6 @@ export const SIDEBAR_LINKS = [
     path: "/report",
     icon: <TbReportAnalytics />,
   },
-];
-
-export const SIDEBAR_BOTTOM_LINKS = [
   {
     key: "settings",
     label: "Settings",

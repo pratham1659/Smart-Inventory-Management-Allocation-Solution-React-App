@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       screens: {
-        xs: "300px",
+        xs: "390px",
         "2xl": "1536px",
       },
       fontSize: {

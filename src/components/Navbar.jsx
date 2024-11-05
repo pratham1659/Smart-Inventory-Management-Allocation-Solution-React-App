@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Badge from "@mui/material/Badge";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -22,27 +22,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, currentColor }) =
 
 const Navbar = () => {
   // eslint-disable-next-line
-  const { activeMenu, setActiveMenu, handleClick, isClicked, setIsClicked, screenSize, setScreenSize, currentColor } = useStateContext();
-
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (screenSize <= 900) {
-      setActiveMenu(false);
-    } else {
-      setActiveMenu(true);
-    }
-    // eslint-disable-next-line
-  }, [screenSize]);
+  const { activeMenu, setActiveMenu, handleClick, isClicked, setIsClicked, currentColor } = useStateContext();
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
@@ -70,7 +50,7 @@ const Navbar = () => {
         />
         <Link
           to="/"
-          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex  lg:text-2xl xs:text-base xs:pl-0 font-extrabold tracking-tight dark:text-white text-gray-800">
+          className="items-center gap-3 pl-2 ml-1 mt-2 pb-2 flex md:text-2xl lg:text-2xl xs:text-base xs:pl-0 font-extrabold tracking-tight dark:text-white text-gray-800">
           <span>Inventory Insight</span>
         </Link>
       </div>
@@ -89,8 +69,8 @@ const Navbar = () => {
             dark:hover:bg-gray-800 rounded-lg"
             onClick={() => handleClick("userProfile")}>
             <p>
-              <span className="text-gray-500 text-20 dark:text-white"> Hi, </span>
-              <span className="text-gray-500 font-bold ml-1 text-20 dark:text-white">Pratham</span>
+              <span className="text-gray-500 text-20 dark:text-white xs:text-base"> Hi, </span>
+              <span className="text-gray-500 font-bold ml-1 text-20 dark:text-white xs:text-base">Pratham</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-20 dark:text-white" />
           </div>

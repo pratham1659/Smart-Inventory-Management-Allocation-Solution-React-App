@@ -8,9 +8,8 @@ const initialState = {
 };
 //eslint-disable-next-line
 export const ContextProvider = ({ children }) => {
-  const [activeMenu, setActiveMenu] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(false);
   const [isClicked, setIsClicked] = useState(initialState);
-  const [screenSize, setScreenSize] = useState(undefined);
   const [currentColor, setCurrentColor] = useState("#1E4DB7");
   const [currentMode, setCurrentMode] = useState("Light");
   const [themeSettings, setThemeSettings] = useState(false);
@@ -39,8 +38,6 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         isClicked,
         setIsClicked,
-        screenSize,
-        setScreenSize,
         currentColor,
         setColor,
         currentMode,
