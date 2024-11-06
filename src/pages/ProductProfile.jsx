@@ -1,23 +1,53 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FaFilter } from "react-icons/fa";
 import { LuRotateCcw } from "react-icons/lu";
-import { fetchItems } from "../utils/apiService";
+import { fetchItems, fetchFilterOptions } from "../utils/apiService";
 
 const ProductProfile = () => {
   const [filters, setFilters] = useState({
-    brand: "",
-    channel: "",
-    department: "",
-    class: "",
-    sub_class: "",
-    style_id: "",
+    brands: "",
+    channels: "",
+    departments: "",
+    classes: "",
+    style_groups: "",
+    style_ids: "",
+  });
+  const [filterOptions, setFilterOptions] = useState({
+    brands: [],
+    channels: [],
+    departments: [],
+    classes: [],
+    style_groups: [],
+    style_ids: [],
   });
   const [showData, setShowData] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadFilterOptions = async () => {
+      try {
+        const options = await fetchFilterOptions();
+        // Transform filter options into the required format
+        const formattedOptions = Object.keys(options).reduce((acc, key) => {
+          acc[key] = options[key].map((option) => ({
+            value: option,
+            label: option,
+          }));
+          return acc;
+        }, {});
+
+        setFilterOptions(formattedOptions);
+      } catch (err) {
+        console.error("Failed to load filter options:", err);
+        setError("Failed to load filter options.");
+      }
+    };
+
+    loadFilterOptions();
+  }, []);
 
   const resetFilters = () => {
     setFilters({
@@ -25,7 +55,7 @@ const ProductProfile = () => {
       channel: "",
       department: "",
       class: "",
-      sub_class: "",
+      style_groups: "",
       style_id: "",
     });
     setShowData(false);
@@ -34,11 +64,16 @@ const ProductProfile = () => {
   };
 
   const applyFilters = async () => {
+    const cleanFilters = {};
+    Object.keys(filters).forEach((key) => {
+      if (filters[key]) {
+        cleanFilters[key] = filters[key];
+      }
+    });
+
     try {
-      const response = await axios.get("http://localhost:8000/items", {
-        params: { ...filters },
-      });
-      setData(response.data);
+      const responseData = await fetchItems(cleanFilters);
+      setData(responseData);
       setShowData(true);
       setError(null);
     } catch (err) {
@@ -59,7 +94,7 @@ const ProductProfile = () => {
               <div key={filterKey} className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-1">
                   {filterKey.charAt(0).toUpperCase() + filterKey.slice(1).replace("_", " ")}
-                  {index < 3 && <span className="text-red-500">*</span>}
+                  {index < 2 && <span className="text-red-500">*</span>}
                 </label>
                 <Select
                   value={filters[filterKey]}
@@ -69,7 +104,7 @@ const ProductProfile = () => {
                     <SelectValue placeholder={`Select ${filterKey}`} />
                   </SelectTrigger>
                   <SelectContent>
-                    {fetchItems[filterKey]?.map((option) => (
+                    {filterOptions[filterKey]?.map((option) => (
                       <SelectItem key={option.value} value={option.value}>
                         {option.label}
                       </SelectItem>
@@ -140,7 +175,7 @@ const ProductProfile = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="9" className="border-b p-2 text-center text-gray-500">
+                    <td colSpan="15" className="border-b p-2 text-center text-gray-500">
                       No data available. Select filters and apply.
                     </td>
                   </tr>
