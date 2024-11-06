@@ -95,11 +95,10 @@ const Sidebar = () => {
                   },
                 }}>
                 <span
-                  className="lg:text-2xl xs:text-2xl"
+                  className="lg:text-2xl xs:text-2xl "
                   style={{
                     marginLeft: isSmallScreen ? "0.25rem" : "0.75rem", // Adjust the values as needed
                   }}>
-                  {" "}
                   {item.icon}
                 </span>
               </Tooltip>

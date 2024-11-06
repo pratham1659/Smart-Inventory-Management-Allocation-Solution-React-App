@@ -338,7 +338,7 @@ export default function DataTable() {
                     }}>
                     {column.id !== "select" && (
                       <Input
-                        placeholder={`Search ${column.id}...`}
+                        placeholder="Search..."
                         value={column?.getFilterValue() ?? ""}
                         onChange={(event) => column.setFilterValue(event.target.value)}
                         className="max-w-sm"
