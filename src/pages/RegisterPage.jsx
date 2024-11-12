@@ -3,7 +3,7 @@ import smart from "../images/smart.png";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -101,7 +101,6 @@ const LoginPage = () => {
           <div className="relative w-full max-w-md aspect-[4/3]">
             <img src={smart} alt="Analytics Dashboard" className="w-3/4 h-auto my-0 mx-auto" />
           </div>
-
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Efficient Inventory, Effortless Success</h3>
             <p className="text-gray-600">Revolutionize Your Inventory, Realize Your Potential</p>
@@ -112,4 +111,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
