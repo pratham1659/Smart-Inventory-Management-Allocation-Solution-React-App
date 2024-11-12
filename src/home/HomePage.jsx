@@ -17,6 +17,7 @@ import {
   Settings,
   HelpSupport,
   LoginPage,
+  RegisterPage,
 } from "../pages";
 
 import Navbar from "../components/Navbar";
@@ -31,6 +32,7 @@ const HomePage = () => {
 
   // Check if the current path is "/login"
   const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
 
   // Check if the screen width is 300px or lower
   const isSmallScreen = useMediaQuery({ maxWidth: 1024 });
@@ -39,7 +41,7 @@ const HomePage = () => {
     <div className={`bg-gray-100 ${currentMode === "Dark" ? "dark" : ""}`}>
       <div className="flex relative dark:bg-main-dark-bg">
         {/* Settings Button */}
-        {!isLoginPage && (
+        {!isLoginPage && !isRegisterPage && (
           <div className="fixed right-2 bottom-3" style={{ zIndex: "1000" }}>
             <Tooltip title="Settings" placement="top">
               <button
@@ -54,7 +56,7 @@ const HomePage = () => {
         )}
 
         {/* Sidebar */}
-        {!isLoginPage && (
+        {!isLoginPage && !isRegisterPage && (
           <motion.div
             animate={{ width: activeMenu ? "18rem" : isSmallScreen ? "4rem" : "5rem" }}
             className={`fixed sidebar bg-main-dark-bg ${activeMenu ? "w-72 " : "w-20 xs:w-18"} dark:bg-secondary-dark-bg`}>
@@ -65,15 +67,15 @@ const HomePage = () => {
         {/* Main Content Wrapper */}
         <div className={`flex-1 min-h-screen transition-all duration-300 ease-in-out`}>
           {/* Navbar */}
-          {!isLoginPage && (
+          {!isLoginPage && !isRegisterPage && (
             <div className="fixed top-0 left-0 right-0 z-50 bg-main-bg navbar dark:bg-main-dark-bg shadow-md">
               <Navbar />
             </div>
           )}
 
           {/* Main Scrollable Content */}
-          <div className={`${!isLoginPage ? "mt-20 ml-20 pb-4 px-4 overflow-y-auto" : ""}   bg-gray-100`}>
-            {!isLoginPage && <Breadcrumbs />}
+          <div className={`${!isLoginPage && !isRegisterPage ? "mt-20 ml-20 pb-4 px-4 overflow-y-auto" : ""} bg-gray-100`}>
+            {!isLoginPage && !isRegisterPage && <Breadcrumbs />}
             {themeSettings && <ThemeSettings />}
             <Routes>
               <Route path="/" element={<Dashboard />} />
@@ -92,8 +94,11 @@ const HomePage = () => {
               <Route path="/settings" element={<Settings />} />
               <Route path="/support" element={<HelpSupport />} />
 
-              {/* Login Logout */}
+              {/* Login Page */}
               <Route path="/login" element={<LoginPage />} />
+
+              {/* Register Page */}
+              <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </div>
         </div>
