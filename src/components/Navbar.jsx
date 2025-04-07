@@ -75,7 +75,7 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-20 dark:text-white" />
           </div>
         </Tooltip>
-        {isClicked.notification && <Notification />}
+        {isClicked.notification && <Notification onClose={() => setIsClicked({ ...isClicked, notification: false })} />}
         {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
