@@ -6,7 +6,7 @@ const MaintenanceModal = () => {
       <div className="bg-white dark:bg-gray-800 text-center p-8 rounded-xl shadow-xl max-w-md w-full">
         <h2 className="text-2xl font-bold text-red-600 mb-4">🚧 Under Maintenance</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          Our server is currently undergoing maintenance.
+          Our backend server is currently undergoing maintenance.
           <br />
           Please check back later.
         </p>
